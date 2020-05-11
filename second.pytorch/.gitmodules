@@ -1,0 +1,3 @@
+[submodule "second/torchplus"]
+	path = second/torchplus
+	url = https://github.com/traveller59/torchplus.git
