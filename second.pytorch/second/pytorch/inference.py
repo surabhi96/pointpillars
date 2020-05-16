@@ -3,13 +3,16 @@ from pathlib import Path
 import numpy as np
 import torch
 
+import sys
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second")
+# sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/pytorch/")
 import torchplus
-from second.core import box_np_ops
-from second.core.inference import InferenceContext
-from second.builder import target_assigner_builder, voxel_builder
-from second.pytorch.builder import box_coder_builder, second_builder
-from second.pytorch.models.voxelnet import VoxelNet
-from second.pytorch.train import predict_kitti_to_anno, example_convert_to_torch
+from core import box_np_ops
+from core.inference import InferenceContext
+from builder import target_assigner_builder, voxel_builder
+from pytorch.builder_fake import box_coder_builder, second_builder
+from pytorch.models.voxelnet import VoxelNet
+from pytorch.train import predict_kitti_to_anno, example_convert_to_torch
 
 
 class TorchInferenceContext(InferenceContext):

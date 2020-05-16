@@ -12,8 +12,8 @@ from google.protobuf import text_format
 from tensorboardX import SummaryWriter
 
 import sys
-sys.path.append("/home/sverma/second.pytorch/")
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 import torchplus
 import data.kitti_common as kitti
 from builder import target_assigner_builder, voxel_builder

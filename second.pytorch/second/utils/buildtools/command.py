@@ -7,7 +7,7 @@ from enum import Enum
 from functools import partial
 from pathlib import Path
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/")
 import fire
 
 from find import find_cuda, find_cuda_device_arch

@@ -2,8 +2,8 @@ import numba
 from pathlib import Path
 import numpy as np
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/buildtools")
-sys.path.append("home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/buildtools")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 from pybind11_build import load_pb11
 
 from geometry import points_in_convex_polygon_3d_jit

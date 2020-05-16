@@ -8,7 +8,7 @@ import numba
 import numpy as np
 from shapely.geometry import Polygon
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 
 import box_np_ops
 from geometry import (points_in_convex_polygon_3d_jit,

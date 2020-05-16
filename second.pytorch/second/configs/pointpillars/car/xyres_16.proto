@@ -96,7 +96,7 @@ model: {
 
 
 train_input_reader: {
-  record_file_path: "/home/sverma/second.pytorch/second/kitti_dataset/kitti_train.tfrecord"
+  record_file_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_train.tfrecord"
   class_names: ["Car"]
   max_num_epochs : 160
   batch_size: 2
@@ -114,7 +114,7 @@ train_input_reader: {
   groundtruth_points_drop_percentage: 0.0
   groundtruth_drop_max_keep_points: 15
   database_sampler {
-    database_info_path: "/home/sverma/second.pytorch/second/kitti_dataset/kitti_dbinfos_train.pkl"
+    database_info_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_dbinfos_train.pkl"
     sample_groups {
       name_to_max_num {
         key: "Car"
@@ -140,8 +140,8 @@ train_input_reader: {
 
   remove_unknown_examples: false
   remove_environment: false
-  kitti_info_path: "/home/sverma/second.pytorch/second/kitti_dataset/kitti_infos_train.pkl"
-  kitti_root_path: "/home/sverma/second.pytorch/second/kitti_dataset"
+  kitti_info_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_infos_train.pkl"
+  kitti_root_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset"
 }
 
 train_config: {
@@ -162,8 +162,8 @@ train_config: {
   }
   inter_op_parallelism_threads: 4
   intra_op_parallelism_threads: 4
-  steps: 296960 # 1856 steps per epoch * 160 epochs
-  steps_per_eval: 9280 # 1856 steps per epoch * 5 epochs
+  steps: 448800 #2805 steps per epoch * 160 epochs # 1856 steps per epoch * 160 epochs
+  steps_per_eval: 14025 #2805 per epoch *5 # 1856 steps per epoch * 5 epochs
   save_checkpoints_secs : 1800 # half hour
   save_summary_steps : 10
   enable_mixed_precision: false
@@ -172,9 +172,9 @@ train_config: {
 }
 
 eval_input_reader: {
-  record_file_path: "/home/sverma/second.pytorch/second/kitti_dataset/kitti_val.tfrecord"
+  record_file_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_val.tfrecord"
   class_names: ["Car"]
-  batch_size: 2
+  batch_size: 1
   max_num_epochs : 160
   prefetch_size : 25
   max_number_of_voxels: 12000
@@ -182,6 +182,6 @@ eval_input_reader: {
   num_workers: 3
   anchor_area_threshold: 1
   remove_environment: false
-  kitti_info_path: "/home/sverma/second.pytorch/second/kitti_dataset/kitti_infos_val.pkl"
-  kitti_root_path: "/home/sverma/second.pytorch/second/kitti_dataset"
+  kitti_info_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_infos_val.pkl"
+  kitti_root_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset"
 }

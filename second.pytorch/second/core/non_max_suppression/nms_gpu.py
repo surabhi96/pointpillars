@@ -5,8 +5,8 @@ import numba
 import numpy as np
 from numba import cuda
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/buildtools/")
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/buildtools/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 
 from pybind11_build import load_pb11
 

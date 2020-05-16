@@ -2,7 +2,7 @@ from abc import ABCMeta
 from abc import abstractmethod
 from abc import abstractproperty
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/pytorch/core")
 import box_np_ops
 import numpy as np
 

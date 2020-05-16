@@ -22,7 +22,7 @@ Detection configuration framework, they should define their own builder function
 that wraps the build function.
 """
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 
 from protos import input_reader_pb2
 from data.dataset import KittiDataset

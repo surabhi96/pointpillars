@@ -1,6 +1,6 @@
 
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 import preprocess as prep
 
 def build_db_preprocess(db_prep_config):

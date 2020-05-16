@@ -3,7 +3,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/")
 
 from loader import import_file
 from find import find_cuda_device_arch

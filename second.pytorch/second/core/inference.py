@@ -5,7 +5,7 @@ import numpy as np
 from google.protobuf import text_format
 import sys
 
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 
 from data.preprocess import merge_second_batch, prep_pointcloud
 from protos import pipeline_pb2

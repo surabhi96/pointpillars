@@ -1,7 +1,7 @@
 import numpy as np
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 from target_assigner import TargetAssigner
 from protos import target_pb2, anchors_pb2
 from builder import similarity_calculator_builder

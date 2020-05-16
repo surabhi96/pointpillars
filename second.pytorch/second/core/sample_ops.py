@@ -6,9 +6,9 @@ from functools import partial, reduce
 import numpy as np
 from skimage import io as imgio
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/")
-sys.path.append("/home/sverma/second.pytorch/second/core/")
-sys.path.append("/home/sverma/second.pytorch/second/data/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/data/")
 
 import preprocess as prep
 import box_np_ops

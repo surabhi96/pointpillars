@@ -2,8 +2,8 @@
 import math
 from pathlib import Path
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/utils/buildtools/")
-sys.path.append("/home/sverma/second.pytorch/second/utils/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/buildtools/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/utils/core/")
 
 from pybind11_build import load_pb11
 from find import find_cuda_device_arch

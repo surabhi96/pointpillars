@@ -28,6 +28,7 @@ from PyQt5.QtWidgets import (
     QPushButton, QSizePolicy, QVBoxLayout, QWidget, QProgressBar)
 from shapely.geometry import Polygon
 from skimage import io
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/")
 
 import second.core.box_np_ops as box_np_ops
 import second.core.preprocess as prep
@@ -524,13 +525,13 @@ class KittiViewer(QMainWindow):
         self.setGeometry(*self.bbox_window)
         # self.statusBar().showMessage('Message in statusbar.')
         control_panel_layout = QVBoxLayout()
-        root_path = self.json_setting.get("kitti_root_path", "")
+        root_path = self.json_setting.get("kitti_root_path", "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset")
         self.w_root_path = QLineEdit(root_path)
         iamge_idx = self.json_setting.get("image_idx", "0")
         self.w_imgidx = QLineEdit(iamge_idx)
-        info_path = self.json_setting.get("latest_info_path", "")
+        info_path = self.json_setting.get("latest_info_path", "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/")
         self.w_info_path = QLineEdit(info_path)
-        det_path = self.json_setting.get("latest_det_path", "")
+        det_path = self.json_setting.get("latest_det_path", "/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/train_attempt2/results/step_406725")
         self.w_det_path = QLineEdit(det_path)
         # self.w_cmd = QLineEdit()
         # self.w_cmd.returnPressed.connect(self.on_CmdReturnPressed)

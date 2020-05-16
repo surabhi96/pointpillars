@@ -24,7 +24,7 @@ that wraps the build function.
 
 from torch.utils.data import Dataset
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 
 from builder import dataset_builder
 from protos import input_reader_pb2

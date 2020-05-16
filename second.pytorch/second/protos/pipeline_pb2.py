@@ -3,7 +3,7 @@
 
 import sys
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 # sys.path.append("/home/sverma/second.pytorch/second/protos/")
 
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))

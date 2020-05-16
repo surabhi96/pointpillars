@@ -4,7 +4,7 @@ import numba
 import numpy as np
 import numpy.random as npr
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 
 import box_np_ops as box_np_ops
 

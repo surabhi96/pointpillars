@@ -15,7 +15,7 @@
 
 """A function to build localization and classification losses from config."""
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
 from pytorch.core import losses
 from protos import losses_pb2
 

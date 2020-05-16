@@ -1,6 +1,6 @@
 import numpy as np
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 from point_cloud.point_cloud_ops import points_to_voxel
 
 

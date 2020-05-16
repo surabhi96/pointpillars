@@ -1,7 +1,7 @@
 import pickle
 import sys
-sys.path.append("/home/sverma/second.pytorch/second/")
-sys.path.append("/home/sverma/second.pytorch/second/core/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/")
+sys.path.append("/home/vishnuu/CMSC498L/pointpillars/second.pytorch/second/core/")
 import preprocess as prep
 from builder import preprocess_builder
 from preprocess import DataBasePreprocessor
