@@ -5,11 +5,11 @@ from std_msgs.msg import Header
 from jsk_recognition_msgs.msg import BoundingBox, BoundingBoxArray
 
 import sys
-path_model = "/home/hradt/VoxelNet/catkin_ws/src/second_ros/second/"
+path_model = "/home/vishnuu/CMSC498L/pointpillars/second.pytorch/"
 sys.path.append(path_model)
 #print sys.path
 
-from pathlib import Path
+#from pathlib import Path
 import glob
 import os
 #print os.getcwd()

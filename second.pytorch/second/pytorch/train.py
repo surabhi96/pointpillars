@@ -309,7 +309,7 @@ def train(config_path,
                     metrics["num_anchors"] = int(num_anchors)
                     metrics["lr"] = float(
                         mixed_optimizer.param_groups[0]['lr'])
-                    metrics["image_idx"] = example['image_idx'][0]
+                    metrics["image_idx"] = example['image_idx'][0]   ## to remove
                     flatted_metrics = flat_nested_json_dict(metrics)
                     flatted_summarys = flat_nested_json_dict(metrics, "/")
                     for k, v in flatted_summarys.items():
