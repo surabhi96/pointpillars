@@ -97,7 +97,7 @@ model: {
 
 train_input_reader: {
   record_file_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_train.tfrecord"
-  class_names: ["Car"]
+  class_names: ["1"]
   max_num_epochs : 160
   batch_size: 2
   prefetch_size : 25
@@ -117,14 +117,14 @@ train_input_reader: {
     database_info_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_dbinfos_train.pkl"
     sample_groups {
       name_to_max_num {
-        key: "Car"
+        key: "1"
         value: 15
       }
     }
     database_prep_steps {
       filter_by_min_num_points {
         min_num_point_pairs {
-          key: "Car"
+          key: "1"
           value: 5
         }
       }
@@ -173,7 +173,7 @@ train_config: {
 
 eval_input_reader: {
   record_file_path: "/media/vishnuu/Seagate Backup Plus Drive/kitti_dataset/kitti_val.tfrecord"
-  class_names: ["Car"]
+  class_names: ["1"]
   batch_size: 1
   max_num_epochs : 160
   prefetch_size : 25

@@ -25,7 +25,7 @@ def _read_imageset_file(path):
     return [int(line) for line in lines]
 
 
-def _calculate_num_points_in_gt(data_path, infos, relative_path, remove_outside=True, num_features=4):
+def _calculate_num_points_in_gt(data_path, infos, relative_path, remove_outside=False, num_features=4):
     for info in infos:
         if relative_path:
             v_path = str(pathlib.Path(data_path) / info["velodyne_path"])
@@ -33,24 +33,26 @@ def _calculate_num_points_in_gt(data_path, infos, relative_path, remove_outside=
             v_path = info["velodyne_path"]
         points_v = np.fromfile(
             v_path, dtype=np.float32, count=-1).reshape([-1, num_features])
-        rect = info['calib/R0_rect']
-        Trv2c = info['calib/Tr_velo_to_cam']
-        P2 = info['calib/P2']
+        # rect = info['calib/R0_rect'] # original code
+        # Trv2c = info['calib/Tr_velo_to_cam'] # original code
+        # P2 = info['calib/P2'] # original code
         if remove_outside:
             points_v = box_np_ops.remove_outside_points(points_v, rect, Trv2c, P2,
                                                         info["img_shape"])
 
         # points_v = points_v[points_v[:, 0] > 0]
         annos = info['annos']
-        num_obj = len([n for n in annos['name'] if n != 'DontCare'])
+        num_obj = len([n for n in annos['name'] if n != 'DontCare']) # *** should we change dont care to 0 ?
         # annos = kitti.filter_kitti_anno(annos, ['DontCare'])
         dims = annos['dimensions'][:num_obj]
         loc = annos['location'][:num_obj]
         rots = annos['rotation_y'][:num_obj]
-        gt_boxes_camera = np.concatenate(
-            [loc, dims, rots[..., np.newaxis]], axis=1)
-        gt_boxes_lidar = box_np_ops.box_camera_to_lidar(
-            gt_boxes_camera, rect, Trv2c)
+        # gt_boxes_camera = np.concatenate(        # original code
+        #     [loc, dims, rots[..., np.newaxis]], axis=1)  # original code
+        # gt_boxes_lidar = box_np_ops.box_camera_to_lidar(  # original code
+        #     gt_boxes_camera, rect, Trv2c)   # original code
+        gt_boxes_lidar = np.concatenate(
+            [loc, dims, rots[..., np.newaxis]], axis=1) 
         indices = box_np_ops.points_in_rbbox(points_v[:, :3], gt_boxes_lidar)
         num_points_in_gt = indices.sum(0)
         num_ignored = len(annos['dimensions']) - num_obj
@@ -215,7 +217,7 @@ def create_groundtruth_database(data_path,
     all_db_infos = {}
     if used_classes is None:
         used_classes = list(kitti.get_classes())
-        used_classes.pop(used_classes.index('DontCare'))
+        # used_classes.pop(used_classes.index('DontCare')) # original code
     for name in used_classes:
         all_db_infos[name] = []
     group_counter = 0
@@ -231,21 +233,22 @@ def create_groundtruth_database(data_path,
             velodyne_path, dtype=np.float32, count=-1).reshape([-1, num_features])
 
         image_idx = info["image_idx"]
-        rect = info['calib/R0_rect']
-        P2 = info['calib/P2']
-        Trv2c = info['calib/Tr_velo_to_cam']
+        # rect = info['calib/R0_rect'] # original code
+        # P2 = info['calib/P2'] # original code
+        # Trv2c = info['calib/Tr_velo_to_cam'] # original code
         if not lidar_only:
             points = box_np_ops.remove_outside_points(points, rect, Trv2c, P2,
                                                         info["img_shape"])
 
         annos = info["annos"]
         names = annos["name"]
-        bboxes = annos["bbox"]
+        # bboxes = annos["bbox"]
         difficulty = annos["difficulty"]
         gt_idxes = annos["index"]
         num_obj = np.sum(annos["index"] >= 0)
-        rbbox_cam = kitti.anno_to_rbboxes(annos)[:num_obj]
-        rbbox_lidar = box_np_ops.box_camera_to_lidar(rbbox_cam, rect, Trv2c)
+        # rbbox_cam = kitti.anno_to_rbboxes(annos)[:num_obj] # original code
+        # rbbox_lidar = box_np_ops.box_camera_to_lidar(rbbox_cam, rect, Trv2c) # original code
+        rbbox_lidar = kitti.anno_to_rbboxes(annos)[:num_obj]
         if bev_only: # set z and h to limits
             assert coors_range is not None
             rbbox_lidar[:, 2] = coors_range[2]
@@ -278,7 +281,7 @@ def create_groundtruth_database(data_path,
                     "gt_idx": gt_idxes[i],
                     "box3d_lidar": rbbox_lidar[i],
                     "num_points_in_gt": gt_points.shape[0],
-                    "difficulty": difficulty[i],
+                    "difficulty": difficulty[i]
                     # "group_id": -1,
                     # "bbox": bboxes[i],
                 }
@@ -289,12 +292,12 @@ def create_groundtruth_database(data_path,
                     group_dict[local_group_id] = group_counter
                     group_counter += 1
                 db_info["group_id"] = group_dict[local_group_id]
-                if "score" in annos:
-                    db_info["score"] = annos["score"][i]
-                all_db_infos[names[i]].append(db_info)
+                # if "score" in annos: # original code
+                #     db_info["score"] = annos["score"][i] # original code
+                # all_db_infos[names[i]].append(db_info) # original code
     for k, v in all_db_infos.items():
         print(f"load {len(v)} {k} database infos")
-
+    
     with open(db_info_save_path, 'wb') as f:
         pickle.dump(all_db_infos, f)
 
